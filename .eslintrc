@@ -8,5 +8,5 @@
   "rules": {
     "semi": "off"
   },
-  "extends": ["eslint:recommended", "google"]
+  "extends": ["eslint:recommended", "prettier"]
 }
