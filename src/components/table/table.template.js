@@ -3,10 +3,9 @@ const CODES = {
   Z: 90
 }
 
-// eslint-disable-next-line no-unused-vars
-function toCell(_, index) {
+function toCell(row, col) {
   return `
-  <div class="cell" contenteditable data-col="${index}"></div>
+  <div class="cell" contenteditable data-type="cell" data-col="${col}" data-id="${row}:${col}"></div>
   `
 }
 
@@ -56,7 +55,7 @@ export function createTable(rowsCount = 15) {
   for(let i = 0; i < rowsCount; i++) {
     const cells = new Array(colsCount)
       .fill('')
-      .map(toCell)
+      .map((_, col) => toCell(i, col))
       .join('')
 
     rows.push(createRow(i + 1, cells))
